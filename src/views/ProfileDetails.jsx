@@ -46,7 +46,7 @@ export default function EditButton() {
                   <div className="p-4" style={{ backgroundColor: '#f8f9fa' }}>
                     <MDBCardText className="font-italic mb-1">Fecha Ingreso: 03/01/2022</MDBCardText>
                     <MDBCardText className="font-italic mb-1">Fecha de Salida: - </MDBCardText>
-                    <MDBCardText className="font-italic mb-0">Track-Positiion: Experienced Developer</MDBCardText>
+                    <MDBCardText className="font-italic mb-0">Track-Position: Experienced Developer</MDBCardText>
                     <MDBCardText className="font-italic mb-0">Nivel Neoris: Experienced</MDBCardText>
                     <MDBCardText className="font-italic mb-0">Correo Neoris: brayan.neyra@neoris.com</MDBCardText>
                   </div>
