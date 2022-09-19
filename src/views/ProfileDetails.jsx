@@ -1,68 +1,180 @@
-import React, { useState, useEffect } from "react";
-import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBBtn, MDBTypography } from 'mdb-react-ui-kit';
+import React, { useState } from 'react';
+import {
+  MDBCol,
+  MDBContainer,
+  MDBRow,
+  MDBCard,
+  MDBCardText,
+  MDBCardBody,
+  MDBCardImage,
+  MDBIcon,
+  MDBListGroup,
+  MDBListGroupItem
+} from 'mdb-react-ui-kit';
 
-export default function EditButton() {
-    const[nombres, setNombres] =  useState('Brayan Michel Neyra Uriarte');
-  
+export default function ProfilePage() {
+  const [project,setProject] = useState('SDATOOL-39330 -> Modelo de contactabilidad en Datio')
   return (
-    <div className="gradient-custom-2" style={{ backgroundColor: '#0C7B76' }}>
-      <MDBContainer className="py-5 h-100">
-        <MDBRow className="justify-content-center align-items-center h-100">
-          <MDBCol lg="10" xl="12">
-            <MDBCard>
-              <div className="rounded-top text-white d-flex flex-row" style={{ backgroundColor: '#1B2A4C', height: '200px' }}>
-                <div className="ms-4 mt-5 d-flex flex-column" style={{ width: '150px' }}>
-                <MDBCardImage src="/img/profile_photo.jpg"
-                    alt="Profile photo" className="mt-4 mb-2 img-thumbnail" fluid style={{ width: '150px', zIndex: '1' }} />
-                </div>
-                <div className="ms-3" style={{ marginTop: '110px'  }}>
-                  <MDBTypography tag="h5">{nombres}</MDBTypography>
-                  <MDBCardText>Perú</MDBCardText>
-                </div>
-              </div>
-              <div className="p-4 text-black" style={{ backgroundColor: '#f8f9fa' }}>
-                <div className="d-flex justify-content-end text-center py-1">
-                  <div>
-                    <MDBCardText className="mb-1 h5">XP66659</MDBCardText>
-                    <MDBCardText className="small text-muted mb-0">XP</MDBCardText>
-                  </div>
-                  <div className="px-3">
-                    <MDBCardText className="mb-1 h5">50261242</MDBCardText>
-                    <MDBCardText className="small text-muted mb-0">Cod. Empleado</MDBCardText>
-                  </div>
-                </div>
-              </div>
-              <MDBCardBody className="text-black p-4">
-                <div className="mb-5">
-                  <p className="lead fw-normal mb-1">Información personal</p>
-                  <div className="p-4" style={{ backgroundColor: '#f8f9fa' }}>
-                    <MDBCardText className="font-italic mb-1">DNI: 75153630</MDBCardText>
-                    <MDBCardText className="font-italic mb-1">Fecha de nacimiento: 06/04/1997</MDBCardText>
-                    <MDBCardText className="font-italic mb-0">Celular: (51) 995 224 240</MDBCardText>
-                  </div>
-                </div>
-                <div className="mb-5">
-                  <p className="lead fw-normal mb-1">Información Neoris</p>
-                  <div className="p-4" style={{ backgroundColor: '#f8f9fa' }}>
-                    <MDBCardText className="font-italic mb-1">Fecha Ingreso: 03/01/2022</MDBCardText>
-                    <MDBCardText className="font-italic mb-1">Fecha de Salida: - </MDBCardText>
-                    <MDBCardText className="font-italic mb-0">Track-Position: Experienced Developer</MDBCardText>
-                    <MDBCardText className="font-italic mb-0">Nivel Neoris: Experienced</MDBCardText>
-                    <MDBCardText className="font-italic mb-0">Correo Neoris: brayan.neyra@neoris.com</MDBCardText>
-                  </div>
-                </div>
-                <div className="mb-5">
-                  <p className="lead fw-normal mb-1">Información BBVA</p>
-                  <div className="p-4" style={{ backgroundColor: '#f8f9fa' }}>
-                    <MDBCardText className="font-italic mb-1">Plataforma: NextGen</MDBCardText>
-                    <MDBCardText className="font-italic mb-1">Especialidad: Backend - ASO/APX</MDBCardText>
-                  </div>
-                </div>
+    <section style={{ backgroundColor: '#eee' }}>
+      <MDBContainer className="py-5">
+        <MDBRow>
+          <MDBCol lg="4">
+            <MDBCard className="mb-4">
+              <MDBCardBody className="text-center">
+                <MDBCardImage
+                  src="/img/profile_photo.png"
+                  alt="avatar"
+                  className="rounded-circle"
+                  style={{ width: '150px' }}
+                  fluid />
+                <hr />
+                <p className="text-muted">XP66659</p>
+                <hr />
+                <p className="text-muted ">brayan.neyra.contractor@bbva.com</p>
+                <hr />
+                <p className="text-muted">50261242</p>
+                <hr />
+                <p className="text-muted">brayan.neyra@neoris.com</p>
+               
+              </MDBCardBody>
+            </MDBCard>
+
+            <MDBCard className="mb-4 mb-lg-0">
+              <MDBCardBody className="p-0">
+                <MDBListGroup flush className="rounded-3">
+                  <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
+                    <MDBIcon fas icon="user-alt" />
+                    <MDBCardText>Brayan Michel Neyra Uriarte</MDBCardText>
+                  </MDBListGroupItem>
+                  <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
+                    <MDBIcon fas icon="globe" />
+                    <MDBCardText>Perú</MDBCardText>
+                  </MDBListGroupItem>
+                  <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
+                    <MDBIcon fas icon="address-card" style={{ color: '#333333' }}  />
+                    <MDBCardText>75153630</MDBCardText>
+                  </MDBListGroupItem>
+                  <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
+                    <MDBIcon fas icon="calendar-alt" />
+                    <MDBCardText>06/04/1997</MDBCardText>
+                  </MDBListGroupItem>
+                  <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
+                    <MDBIcon fas icon="phone-alt" />
+                    <MDBCardText>(51) 995 224 240</MDBCardText>
+                  </MDBListGroupItem>
+                </MDBListGroup>
+              </MDBCardBody>
+            </MDBCard>
+          </MDBCol>
+          <MDBCol lg="8">
+            <MDBCard className="mb-4">
+              <MDBCardBody>
+                <MDBRow>
+                  <MDBCol sm="3">
+                    <MDBCardText>Fecha Ingreso</MDBCardText>
+                  </MDBCol>
+                  <MDBCol sm="9">
+                    <MDBCardText className="text-muted">03/01/2022</MDBCardText>
+                  </MDBCol>
+                </MDBRow>
+                <hr />
+                <MDBRow>
+                  <MDBCol sm="3">
+                    <MDBCardText>Track-Position</MDBCardText>
+                  </MDBCol>
+                  <MDBCol sm="9">
+                    <MDBCardText className="text-muted">Experienced Developer</MDBCardText>
+                  </MDBCol>
+                </MDBRow>
+                <hr />
+                <MDBRow>
+                  <MDBCol sm="3">
+                    <MDBCardText>Nivel Neoris</MDBCardText>
+                  </MDBCol>
+                  <MDBCol sm="9">
+                    <MDBCardText className="text-muted">Experienced</MDBCardText>
+                  </MDBCol>
+                </MDBRow>
+              </MDBCardBody>
+            </MDBCard>
+            <MDBCard className="mb-4">
+              <MDBCardBody>
+                <MDBRow>
+                  <MDBCol sm="3">
+                    <MDBCardText>Plataforma</MDBCardText>
+                  </MDBCol>
+                  <MDBCol sm="9">
+                    <MDBCardText className="text-muted">NextGen</MDBCardText>
+                  </MDBCol>
+                </MDBRow>
+                <hr />
+                <MDBRow>
+                  <MDBCol sm="3">
+                    <MDBCardText>Especialidad</MDBCardText>
+                  </MDBCol>
+                  <MDBCol sm="9">
+                    <MDBCardText className="text-muted">Backend - ASO/APX</MDBCardText>
+                  </MDBCol>
+                </MDBRow>
+                <hr />
+                <MDBRow>
+                  <MDBCol sm="3">
+                    <MDBCardText>Staff</MDBCardText>
+                  </MDBCol>
+                  <MDBCol sm="9">
+                    <MDBCardText className="text-muted">Proyectos</MDBCardText>
+                  </MDBCol>
+                </MDBRow>
+                <hr />
+                <MDBRow>
+                  <MDBCol sm="3">
+                    <MDBCardText>Gerencia</MDBCardText>
+                  </MDBCol>
+                  <MDBCol sm="9">
+                    <MDBCardText className="text-muted">Banking Systems</MDBCardText>
+                  </MDBCol>
+                </MDBRow>
+                <hr />
+                <MDBRow>
+                  <MDBCol sm="3">
+                    <MDBCardText>Staffer</MDBCardText>
+                  </MDBCol>
+                  <MDBCol sm="9">
+                    <MDBCardText className="text-muted">DELSY RIOS DIAZ</MDBCardText>
+                  </MDBCol>
+                </MDBRow>
+                <hr />
+                <MDBRow>
+                  <MDBCol sm="3">
+                    <MDBCardText>Tech Lead</MDBCardText>
+                  </MDBCol>
+                  <MDBCol sm="9">
+                    <MDBCardText className="text-muted">CAROL ÑAUPAS CARAZA</MDBCardText>
+                  </MDBCol>
+                </MDBRow>
+                <hr />
+                <MDBRow>
+                  <MDBCol sm="3">
+                    <MDBCardText>Scrum Master</MDBCardText>
+                  </MDBCol>
+                  <MDBCol sm="9">
+                    <MDBCardText className="text-muted">frank.llanos@bbva.com</MDBCardText>
+                  </MDBCol>
+                </MDBRow>
+                <hr />
+                <MDBRow>
+                  <MDBCol sm="3">
+                    <MDBCardText>Proyecto</MDBCardText>
+                  </MDBCol>
+                  <MDBCol sm="9">
+                    <MDBCardText className="text-muted">{project}</MDBCardText>
+                  </MDBCol>
+                </MDBRow>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
         </MDBRow>
       </MDBContainer>
-    </div>
+    </section>
   );
 }
