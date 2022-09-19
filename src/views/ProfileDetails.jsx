@@ -1,23 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBBtn, MDBTypography } from 'mdb-react-ui-kit';
 
 export default function EditButton() {
+    const[nombres, setNombres] =  useState('Brayan Michel Neyra Uriarte');
+  
   return (
-    <div className="gradient-custom-2" style={{ backgroundColor: '#9de2ff' }}>
+    <div className="gradient-custom-2" style={{ backgroundColor: '#0C7B76' }}>
       <MDBContainer className="py-5 h-100">
         <MDBRow className="justify-content-center align-items-center h-100">
           <MDBCol lg="10" xl="12">
             <MDBCard>
-              <div className="rounded-top text-white d-flex flex-row" style={{ backgroundColor: '#000', height: '200px' }}>
+              <div className="rounded-top text-white d-flex flex-row" style={{ backgroundColor: '#1B2A4C', height: '200px' }}>
                 <div className="ms-4 mt-5 d-flex flex-column" style={{ width: '150px' }}>
                 <MDBCardImage src="/img/profile_photo.jpg"
                     alt="Profile photo" className="mt-4 mb-2 img-thumbnail" fluid style={{ width: '150px', zIndex: '1' }} />
-                  {/* <MDBBtn outline color="dark" style={{height: '36px', overflow: 'visible'}}>
-                    Edit profile
-                  </MDBBtn> */}
                 </div>
-                <div className="ms-3" style={{ marginTop: '130px' }}>
-                  <MDBTypography tag="h5">Brayan Michel Neyra Uriarte</MDBTypography>
+                <div className="ms-3" style={{ marginTop: '110px'  }}>
+                  <MDBTypography tag="h5">{nombres}</MDBTypography>
                   <MDBCardText>Perú</MDBCardText>
                 </div>
               </div>
@@ -42,30 +41,23 @@ export default function EditButton() {
                     <MDBCardText className="font-italic mb-0">Celular: (51) 995 224 240</MDBCardText>
                   </div>
                 </div>
-                <div className="d-flex justify-content-between align-items-center mb-4">
-                  <MDBCardText className="lead fw-normal mb-0">Recent photos</MDBCardText>
-                  <MDBCardText className="mb-0"><a href="#!" className="text-muted">Show all</a></MDBCardText>
+                <div className="mb-5">
+                  <p className="lead fw-normal mb-1">Información Neoris</p>
+                  <div className="p-4" style={{ backgroundColor: '#f8f9fa' }}>
+                    <MDBCardText className="font-italic mb-1">Fecha Ingreso: 03/01/2022</MDBCardText>
+                    <MDBCardText className="font-italic mb-1">Fecha de Salida: - </MDBCardText>
+                    <MDBCardText className="font-italic mb-0">Track-Positiion: Experienced Developer</MDBCardText>
+                    <MDBCardText className="font-italic mb-0">Nivel Neoris: Experienced</MDBCardText>
+                    <MDBCardText className="font-italic mb-0">Correo Neoris: brayan.neyra@neoris.com</MDBCardText>
+                  </div>
                 </div>
-                <MDBRow>
-                  <MDBCol className="mb-2">
-                    <MDBCardImage src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(112).webp"
-                      alt="image 1" className="w-100 rounded-3" />
-                  </MDBCol>
-                  <MDBCol className="mb-2">
-                    <MDBCardImage src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(107).webp"
-                      alt="image 1" className="w-100 rounded-3" />
-                  </MDBCol>
-                </MDBRow>
-                <MDBRow className="g-2">
-                  <MDBCol className="mb-2">
-                    <MDBCardImage src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(108).webp"
-                      alt="image 1" className="w-100 rounded-3" />
-                  </MDBCol>
-                  <MDBCol className="mb-2">
-                    <MDBCardImage src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(114).webp"
-                      alt="image 1" className="w-100 rounded-3" />
-                  </MDBCol>
-                </MDBRow>
+                <div className="mb-5">
+                  <p className="lead fw-normal mb-1">Información BBVA</p>
+                  <div className="p-4" style={{ backgroundColor: '#f8f9fa' }}>
+                    <MDBCardText className="font-italic mb-1">Plataforma: NextGen</MDBCardText>
+                    <MDBCardText className="font-italic mb-1">Especialidad: Backend - ASO/APX</MDBCardText>
+                  </div>
+                </div>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
