@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import {
   MDBCol,
   MDBContainer,
@@ -11,9 +11,70 @@ import {
   MDBListGroup,
   MDBListGroupItem
 } from 'mdb-react-ui-kit';
+import {useParams } from 'react-router-dom'
+
+import { ProfileService } from '../services/ProfileService'
 
 export default function ProfilePage() {
+
+  const { xpColaborador } = useParams()
+
+  const [emailContractor,setEmailContractor] = useState('brayan.neyra.contractor@bbva.com')
+  const [codEmpleado,setCodEmpleado] = useState('50261242')
+  const [emailNeoris,setEmailNeoris] = useState('brayan.neyra@neoris.com')
+  const [nombresApellidos,setNombresApellidos] = useState('Brayan Michel Neyra Uriarte')
+  const [pais,setPais] = useState('Perú')
+  const [numDocumento,setNumDocumento] = useState('75153630')
+  const [fechaNacimiento,setFechaNacimiento] = useState('04/06/1997')
+  const [telefono,setTelefono] = useState('(51) 995 224 240')
+  const [fechaIngreso,setFechaIngreso] = useState('03/01/2022')
+  const [trackPosition,setTrackPosition] = useState('Experienced Developer')
+  const[nivelNeoris,setNivelNeoris] =useState('Experienced')
+  const[plataforma,setPlataforma] =useState('NextGen')
+  const[especialidad,setEspecialidad] =useState('Backend - ASO/APX')
+  const[staff,setStaff] =useState('Proyectos')
+  const[gerencia,setGerencia] =useState('Banking Systems')
+  const[staffer,setStaffer] =useState('DELSY RIOS DIAZ')
+  const[techLead,setTechLead] =useState('CAROL ÑAUPAS CARAZA')
+  const[scrumMaster,setScrumMaster] =useState('frank.llanos@bbva.com')
+  
   const [project,setProject] = useState('SDATOOL-39330 -> Modelo de contactabilidad en Datio')
+
+  const profileService = new ProfileService();
+
+  
+  useEffect(() => {
+    const getProfileByXp = async () => {
+      const profileResponse =  await profileService.getProfileByXp(xpColaborador);
+      const profileData  = profileResponse.data;
+      //Setear datos que devuelve la api
+
+      // setEmailContractor(profileData.emailContractor)
+      // setCodEmpleado(profileData.codEmpleado)
+      // setEmailNeoris(profileData.emailNeoris)
+      // setNombresApellidos(profileData.nombre + ' '+ profileData.apellido)
+      // setPais(profileData.pais)
+      // setNumDocumento(profileData.numDocumento)
+      // setFechaNacimiento(profileData.fechaNacimiento)
+      // setTelefono(profileData.telefono)
+      // setFechaIngreso(profileData.fechaIngreso)
+      // setTrackPosition(profileData.trackPosition)
+      // setNivelNeoris(profileData.nivelNeoris)
+      // setPlataforma(profileData.plataforma)
+      // setEspecialidad(profileData.especialidad)
+      // setStaff(profileData.staff)
+      // setGerencia(profileData.gerencia)
+      // setStaffer(profileData.staffer)
+      // setTechLead(profileData.techLead)
+      // setScrumMaster(profileData.scrumMaster)
+      // setProject(profileData.project)
+    }
+
+    Promise.all([
+      getProfileByXp()
+    ])
+  }, []);
+
   return (
     <section style={{ backgroundColor: '#eee' }}>
       <MDBContainer className="py-5">
@@ -28,13 +89,13 @@ export default function ProfilePage() {
                   style={{ width: '150px' }}
                   fluid />
                 <hr />
-                <p className="text-muted">XP66659</p>
+                <p className="text-muted">{xpColaborador}</p>
                 <hr />
-                <p className="text-muted ">brayan.neyra.contractor@bbva.com</p>
+                <p className="text-muted ">{emailContractor}</p>
                 <hr />
-                <p className="text-muted">50261242</p>
+                <p className="text-muted">{codEmpleado}</p>
                 <hr />
-                <p className="text-muted">brayan.neyra@neoris.com</p>
+                <p className="text-muted">{emailNeoris}</p>
                
               </MDBCardBody>
             </MDBCard>
@@ -44,23 +105,23 @@ export default function ProfilePage() {
                 <MDBListGroup flush className="rounded-3">
                   <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
                     <MDBIcon fas icon="user-alt" />
-                    <MDBCardText>Brayan Michel Neyra Uriarte</MDBCardText>
+                    <MDBCardText>{nombresApellidos}</MDBCardText>
                   </MDBListGroupItem>
                   <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
                     <MDBIcon fas icon="globe" />
-                    <MDBCardText>Perú</MDBCardText>
+                    <MDBCardText>{pais}</MDBCardText>
                   </MDBListGroupItem>
                   <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
                     <MDBIcon fas icon="address-card" style={{ color: '#333333' }}  />
-                    <MDBCardText>75153630</MDBCardText>
+                    <MDBCardText>{numDocumento}</MDBCardText>
                   </MDBListGroupItem>
                   <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
                     <MDBIcon fas icon="calendar-alt" />
-                    <MDBCardText>06/04/1997</MDBCardText>
+                    <MDBCardText>{fechaNacimiento}</MDBCardText>
                   </MDBListGroupItem>
                   <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
                     <MDBIcon fas icon="phone-alt" />
-                    <MDBCardText>(51) 995 224 240</MDBCardText>
+                    <MDBCardText>{telefono}</MDBCardText>
                   </MDBListGroupItem>
                 </MDBListGroup>
               </MDBCardBody>
@@ -74,7 +135,7 @@ export default function ProfilePage() {
                     <MDBCardText>Fecha Ingreso</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">03/01/2022</MDBCardText>
+                    <MDBCardText className="text-muted">{fechaIngreso}</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
@@ -83,7 +144,7 @@ export default function ProfilePage() {
                     <MDBCardText>Track-Position</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">Experienced Developer</MDBCardText>
+                    <MDBCardText className="text-muted">{trackPosition}</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
@@ -92,7 +153,7 @@ export default function ProfilePage() {
                     <MDBCardText>Nivel Neoris</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">Experienced</MDBCardText>
+                    <MDBCardText className="text-muted">{nivelNeoris}</MDBCardText>
                   </MDBCol>
                 </MDBRow>
               </MDBCardBody>
@@ -104,7 +165,7 @@ export default function ProfilePage() {
                     <MDBCardText>Plataforma</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">NextGen</MDBCardText>
+                    <MDBCardText className="text-muted">{plataforma}</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
@@ -113,7 +174,7 @@ export default function ProfilePage() {
                     <MDBCardText>Especialidad</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">Backend - ASO/APX</MDBCardText>
+                    <MDBCardText className="text-muted">{especialidad}</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
@@ -122,7 +183,7 @@ export default function ProfilePage() {
                     <MDBCardText>Staff</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">Proyectos</MDBCardText>
+                    <MDBCardText className="text-muted">{staff}</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
@@ -131,7 +192,7 @@ export default function ProfilePage() {
                     <MDBCardText>Gerencia</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">Banking Systems</MDBCardText>
+                    <MDBCardText className="text-muted">{gerencia}</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
@@ -140,7 +201,7 @@ export default function ProfilePage() {
                     <MDBCardText>Staffer</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">DELSY RIOS DIAZ</MDBCardText>
+                    <MDBCardText className="text-muted">{staffer}</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
@@ -149,7 +210,7 @@ export default function ProfilePage() {
                     <MDBCardText>Tech Lead</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">CAROL ÑAUPAS CARAZA</MDBCardText>
+                    <MDBCardText className="text-muted">{techLead}</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
@@ -158,7 +219,7 @@ export default function ProfilePage() {
                     <MDBCardText>Scrum Master</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">frank.llanos@bbva.com</MDBCardText>
+                    <MDBCardText className="text-muted">{scrumMaster}</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />

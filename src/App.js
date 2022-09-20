@@ -5,7 +5,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path={'/profile-detail/:idColaborador'} exact element={<ProfilePage/>} />
+        <Route path={'/profile-detail/:xpColaborador'} exact element={<ProfilePage/>} />
       </Routes>
     </Router>
     
